@@ -1,7 +1,8 @@
+import type { FC } from 'react';
 import { ColorRing } from 'react-loader-spinner';
 import css from './Loader.module.css';
 
-export const Loader = () => {
+export const Loader: FC = () => {
   return (
     <div className={css.loaderWrapper} role="status" aria-live="polite">
       <ColorRing
@@ -16,3 +17,5 @@ export const Loader = () => {
     </div>
   );
 };
+
+export default Loader;

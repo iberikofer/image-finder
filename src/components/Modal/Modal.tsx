@@ -1,10 +1,20 @@
 import { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import type { FC, MouseEvent } from 'react';
 import css from './Modal.module.css';
 
-export const Modal = ({ selectedImage, altText, closeModal }) => {
+interface ModalProps {
+  selectedImage: string;
+  altText?: string;
+  closeModal: () => void;
+}
+
+export const Modal: FC<ModalProps> = ({
+  selectedImage,
+  altText = '',
+  closeModal,
+}) => {
   useEffect(() => {
-    const handleKeyDown = e => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         closeModal();
       }
@@ -21,7 +31,7 @@ export const Modal = ({ selectedImage, altText, closeModal }) => {
     };
   }, [closeModal]);
 
-  const handleBackdropClick = e => {
+  const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
@@ -54,12 +64,4 @@ export const Modal = ({ selectedImage, altText, closeModal }) => {
   );
 };
 
-Modal.propTypes = {
-  selectedImage: PropTypes.string.isRequired,
-  altText: PropTypes.string,
-  closeModal: PropTypes.func.isRequired,
-};
-
-Modal.defaultProps = {
-  altText: '',
-};
+export default Modal;

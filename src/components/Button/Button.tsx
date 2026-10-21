@@ -1,7 +1,12 @@
-import PropTypes from 'prop-types';
+import type { FC } from 'react';
 import css from './Button.module.css';
 
-export const Button = ({ onClick, isLoading }) => {
+interface ButtonProps {
+  onClick: () => void;
+  isLoading?: boolean;
+}
+
+export const Button: FC<ButtonProps> = ({ onClick, isLoading = false }) => {
   return (
     <div className={css.buttonContainer}>
       <button
@@ -17,11 +22,4 @@ export const Button = ({ onClick, isLoading }) => {
   );
 };
 
-Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool,
-};
-
-Button.defaultProps = {
-  isLoading: false,
-};
+export default Button;

@@ -1,22 +1,24 @@
 import { useState } from 'react';
+import type { FC } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import { Modal } from './Modal/Modal';
 import { fetchImages } from '../services/pixabay-api';
+import type { PixabayImage } from '../types/image';
 import css from './App.module.css';
 
-export const App = () => {
-  const [query, setQuery] = useState('');
-  const [images, setImages] = useState([]);
-  const [page, setPage] = useState(1);
-  const [totalHits, setTotalHits] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+export const App: FC = () => {
+  const [query, setQuery] = useState<string>('');
+  const [images, setImages] = useState<PixabayImage[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [totalHits, setTotalHits] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<PixabayImage | null>(null);
 
-  const handleSearchSubmit = async newQuery => {
+  const handleSearchSubmit = async (newQuery: string) => {
     if (newQuery === query && images.length > 0) {
       return;
     }
@@ -63,7 +65,7 @@ export const App = () => {
     }
   };
 
-  const handleSelectImage = image => {
+  const handleSelectImage = (image: PixabayImage) => {
     setSelectedImage(image);
   };
 
@@ -134,3 +136,5 @@ export const App = () => {
     </div>
   );
 };
+
+export default App;

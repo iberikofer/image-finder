@@ -1,12 +1,18 @@
-import PropTypes from 'prop-types';
+import type { FC, KeyboardEvent } from 'react';
+import type { PixabayImage } from '../../types/image';
 import css from './ImageGalleryItem.module.css';
 
-export const ImageGalleryItem = ({ image, onSelect }) => {
+interface ImageGalleryItemProps {
+  image: PixabayImage;
+  onSelect: (image: PixabayImage) => void;
+}
+
+export const ImageGalleryItem: FC<ImageGalleryItemProps> = ({ image, onSelect }) => {
   const handleClick = () => {
     onSelect(image);
   };
 
-  const handleKeyDown = e => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       onSelect(image);
@@ -34,12 +40,4 @@ export const ImageGalleryItem = ({ image, onSelect }) => {
   );
 };
 
-ImageGalleryItem.propTypes = {
-  image: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    webformatURL: PropTypes.string.isRequired,
-    largeImageURL: PropTypes.string.isRequired,
-    tags: PropTypes.string,
-  }).isRequired,
-  onSelect: PropTypes.func.isRequired,
-};
+export default ImageGalleryItem;

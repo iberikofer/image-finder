@@ -1,15 +1,19 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+import type { FC, FormEvent, ChangeEvent } from 'react';
 import css from './Searchbar.module.css';
 
-export const Searchbar = ({ onSubmit }) => {
+interface SearchbarProps {
+  onSubmit: (query: string) => void;
+}
+
+export const Searchbar: FC<SearchbarProps> = ({ onSubmit }) => {
   const [inputValue, setInputValue] = useState('');
 
-  const handleChange = e => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const query = inputValue.trim();
     if (!query) {
@@ -46,6 +50,4 @@ export const Searchbar = ({ onSubmit }) => {
   );
 };
 
-Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+export default Searchbar;
