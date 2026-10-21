@@ -2,7 +2,7 @@
   "name": "react-image-finder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://iberikofer.github.io/react-image-finder/",
+  "homepage": "https://iberikofer.github.io/image-finder/",
   "dependencies": {
     "axios": "^1.7.9",
     "prop-types": "^15.8.1",

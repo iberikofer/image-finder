@@ -46,8 +46,8 @@
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/iberikofer/react-image-finder.git
-   cd react-image-finder
+   git clone https://github.com/iberikofer/image-finder.git
+   cd image-finder
    ```
 
 2. **Install dependencies**:
