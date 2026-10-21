@@ -3,43 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://iberikofer.github.io/image-finder/",
+  "type": "module",
   "dependencies": {
     "axios": "^1.7.9",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-loader-spinner": "^5.3.4",
-    "react-scripts": "5.0.1"
+    "react-loader-spinner": "^5.3.4"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "react-scripts start",
-    "build": "tsc && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint:js": "eslint src/**/*.{ts,tsx}"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "start": "vite",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^18.19.130",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
-    "typescript": "^4.9.5"
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^4.9.5",
+    "vite": "^5.4.14",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

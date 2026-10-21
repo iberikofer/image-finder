@@ -1,6 +1,6 @@
 {
-  "buildCommand": "PUBLIC_URL=/ npm run build",
-  "outputDirectory": "build",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/image-finder/(.*)",
